@@ -31,14 +31,15 @@
             Console.WriteLine("\nPlease select an item...\n");
 
             var intSelection = -1;
-            while (intSelection > _inventory.GetNumberOfProducts() || intSelection < 0)
+            while (intSelection >= _inventory.GetNumberOfProducts() || intSelection < 0)
             {
                 try
                 {
                     string selection = Console.ReadLine();
                     intSelection += int.Parse(selection);
                 }
-                catch
+                catch { }
+                finally
                 {
                     Console.WriteLine("\nSorry, option not recognized. Please enter a valid number.");
                 }
